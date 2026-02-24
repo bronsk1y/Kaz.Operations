@@ -78,7 +78,7 @@ The package extends the standard capabilities of .NET and provides a unified API
         bool isPhoneNumber1 = example1.IsPhoneNumber(); // false
         ```
 
-        - **A bunch of other cool methods!**
+        - **And a bunch of other cool methods!**
 
 ---
 - ### `Kaz.Operations.Numerics`
