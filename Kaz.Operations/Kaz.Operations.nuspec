@@ -2,16 +2,18 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
   <id>Kaz.Operations</id>
-  <version>1.1.12</version> <authors>Bronsk1y</authors>
+  <version>1.2.0</version> <authors>Bronsk1y</authors>
   <description>Small library for performing operations on strings, numbers, and collections.</description>
   <license type="expression">MIT</license>
   
+  <repository type="git" url="https://github.com/bronsk1y/Kaz.Operations" />
+
   <icon>images\OperationsIcon.png</icon>
   <readme>docs\README.md</readme>
   
   <dependencies>
     <group targetFramework="net472">
-      <dependency id="Kaz.Operations.Core" version="1.1.12" />
+      <dependency id="Kaz.Operations.Core" version="1.2.0" />
     </group>
   </dependencies>
 </metadata>
