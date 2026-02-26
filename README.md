@@ -78,7 +78,7 @@ The package extends the standard capabilities of .NET and provides a unified API
         bool isPhoneNumber1 = example1.IsPhoneNumber(); // false
         ```
 
-        - **And a bunch of other cool methods!**
+        - **A bunch of other cool methods!**
 
 ---
 - ### `Kaz.Operations.Numerics`
@@ -122,6 +122,15 @@ The package extends the standard capabilities of .NET and provides a unified API
 
         // RatioOfTotal (Calculates percentage ratio)
         decimal total = number1.CalculatePercentage(20, PercentageCalculationMethod.RatioOfTotal); // 200
+        ```
+
+        - ### `Lerp (+2 overloads)`
+
+        ```csharp
+        // Also supports overloads for float and decimal
+
+        double example = 15;
+        Console.WriteLine(example.Lerp(16, 0.5)); // 15.5
         ```
     
 ---
@@ -197,4 +206,3 @@ Install-Package Kaz.Operations
 ## Links
 
 - [NuGet](https://www.nuget.org/packages/Kaz.Operations)
-- [GitHub](https://github.com/bronsk1y/Kaz.Operations)
