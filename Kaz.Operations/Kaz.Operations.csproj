@@ -50,8 +50,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Kaz.Operations.Collections" />
-    <None Include="Kaz.Operations.Numerics" />
+    <Compile Include="Kaz.Operations.Collections.cs" />
+    <Compile Include="Kaz.Operations.Numerics.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
