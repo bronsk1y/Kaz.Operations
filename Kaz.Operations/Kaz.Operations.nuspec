@@ -2,8 +2,9 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
   <id>Kaz.Operations</id>
-  <version>1.2.0</version> <authors>Bronsk1y</authors>
-  <description>Small library for performing operations on strings, numbers, and collections.</description>
+  <version>2.0.0-preview</version> 
+  <authors>Bronsk1y</authors>
+  <description>Provides string manipulation, numeric conversion, collection algorithms, cryptographic hashing, date/time validation, and file I/O utilities for .NET Framework 4.7.2.</description>
   <license type="expression">MIT</license>
   
   <repository type="git" url="https://github.com/bronsk1y/Kaz.Operations" />
@@ -13,7 +14,6 @@
   
   <dependencies>
     <group targetFramework="net472">
-      <dependency id="Kaz.Operations.Core" version="1.2.0" />
     </group>
   </dependencies>
 </metadata>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using Kaz.Operations.Core;
 
@@ -123,7 +124,7 @@ namespace Kaz.Operations.Numerics
 
             if (value.CompareTo(minValue) < 0) return minValue;
             if (value.CompareTo(maxValue) > 0) return maxValue;
-            return value;   
+            return value;
         }
 
         /// <summary>
@@ -156,6 +157,43 @@ namespace Kaz.Operations.Numerics
         public static decimal Lerp(this decimal start, decimal end, decimal amount)
             => start + (end - start) * amount;
 
+        /// <summary>
+        /// Computes the factorial of the specified non-negative integer.
+        /// </summary>
+        /// <param name="number">The non-negative integer to compute the factorial of.</param>
+        /// <returns>Returns the factorial of <paramref name="number"/>.</returns>
+        /// <exception cref="ArgumentException"></exception>
+        public static int Factorial(this int number)
+        {
+            if (number < 0)
+                throw new ArgumentException("Factorial is not defined for negative numbers.", nameof(number));
+
+            int total = 1;
+            for (int i = 1; i <= number; i++)
+            {
+                total *= i;
+            }
+            return total;
+        }
+
+        /// <summary>
+        /// Computes the factorial of the specified non-negative long integer.
+        /// </summary>
+        /// <param name="number">The non-negative integer to compute the factorial of.</param>
+        /// <returns>Returns the factorial of <paramref name="number"/>.</returns>
+        /// <exception cref="ArgumentException"></exception>
+        public static long Factorial(this long number)
+        {
+            if (number < 0)
+                throw new ArgumentException("Factorial is not defined for negative numbers.", nameof(number));
+
+            long total = 1;
+            for (int i = 1; i <= number; i++)
+            {
+                total *= i;
+            }
+            return total;
+        }
 
         /// <summary>
         /// Performs percentage-based mathematical operations on a numeric value.
@@ -177,6 +215,42 @@ namespace Kaz.Operations.Numerics
             };
 
             return (T)Convert.ChangeType(result, typeof(T));
+        }
+
+        /// <summary>
+        /// Determines whether the specified integer is a prime number.
+        /// </summary>
+        /// <param name="number">The integer to check for primality.</param>
+        /// <returns><see langword="true"/> if the number is prime; otherwise, <see langword="false"/>.</returns>
+        public static bool IsPrime(this int number)
+        {
+            if (number < 2)
+                return false;
+
+            for (int i = 2; i <= Math.Sqrt(number); i++)
+            {
+                if (number % i == 0)
+                    return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Determines whether the specified long integer is a prime number.
+        /// </summary>
+        /// <param name="number">The long integer to check for primality.</param>
+        /// <returns><see langword="true"/> if the number is prime; otherwise, <see langword="false"/>.</returns>
+        public static bool IsPrime(this long number)
+        {
+            if (number < 2)
+                return false;
+
+            for (int i = 2; i <= Math.Sqrt(number); i++)
+            {
+                if (number % i == 0)
+                    return false;
+            }
+            return true;
         }
     }
 }

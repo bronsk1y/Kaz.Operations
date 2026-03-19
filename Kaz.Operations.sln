@@ -5,8 +5,6 @@ VisualStudioVersion = 17.14.36930.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaz.Operations", "Kaz.Operations\Kaz.Operations.csproj", "{FA433A7F-0B07-413A-8A43-299698AD8F78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaz.Operations.Core", "..\Kaz.Operations.Core\Kaz.Operations.Core\Kaz.Operations.Core.csproj", "{53D105A7-26B9-4094-B36B-9EDEBACFFFAC}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{FA433A7F-0B07-413A-8A43-299698AD8F78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA433A7F-0B07-413A-8A43-299698AD8F78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA433A7F-0B07-413A-8A43-299698AD8F78}.Release|Any CPU.Build.0 = Release|Any CPU
-		{53D105A7-26B9-4094-B36B-9EDEBACFFFAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{53D105A7-26B9-4094-B36B-9EDEBACFFFAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{53D105A7-26B9-4094-B36B-9EDEBACFFFAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{53D105A7-26B9-4094-B36B-9EDEBACFFFAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
