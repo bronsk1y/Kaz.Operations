@@ -1,6 +1,6 @@
 # Kaz.Operations
 
-Provides string manipulation, numeric conversion, collection algorithms, cryptographic hashing, date/time validation, and file I/O utilities for .NET Framework 4.7.2.
+Provides string manipulation, numeric conversion, collection algorithms, cryptographic hashing, date/time validation, file I/O, system environment access, and certificate utilities for .NET Framework 4.7.2.
 
 ---
 
@@ -413,7 +413,7 @@ Provides string manipulation, numeric conversion, collection algorithms, cryptog
         ```
 
 ---
-- ### `Kaz.Operations.Cryptography`
+- ### `Kaz.Operations.Security.Cryptography`
 
     - #### Hashing algorithms:
 
@@ -481,6 +481,134 @@ Provides string manipulation, numeric conversion, collection algorithms, cryptog
         ```
 
     - **Note:** `Pbkdf2.HMACSHA1` is marked as deprecated and is not recommended for security-critical operations.
+
+---
+- ### `Kaz.Operations.System`
+
+    - #### System and runtime information:
+
+        - ### `SystemInfo.IsAdministrator`
+
+        ```csharp
+        bool isAdmin = SystemInfo.IsAdministrator; // true if elevated
+        ```
+
+        - ### `SystemInfo.WorkingSetMb`
+
+        ```csharp
+        double mb = SystemInfo.WorkingSetMb; // 134.5
+        ```
+
+        - ### `SystemInfo.IsWindowsVersionAtLeast (+1 overload)`
+
+        ```csharp
+        bool result = SystemInfo.IsWindowsVersionAtLeast(10); // true on Windows 10+
+
+        // With minor version
+        bool result1 = SystemInfo.IsWindowsVersionAtLeast(10, 0); // true
+        ```
+
+        - ### `SystemInfo.GetUptime`
+
+        ```csharp
+        TimeSpan uptime = SystemInfo.GetUptime(); // 2.05:13:44
+        ```
+
+        - **Other properties:** `MachineName`, `UserName`, `UserDomainName`, `ProcessorCount`, `Is64BitOperatingSystem`, `Is64BitProcess`, `OSVersion`, `DotNetVersion`, `SystemDirectory`, `CommandLine`, `HasShutdownStarted`, `NewLine`, `PlatformID`, `TickCount`, `CurrentManagedThreadId`, `WorkingSet`.
+
+    ---
+    - #### Environment variables:
+
+        - ### `EnvironmentVariables.GetVariable (+1 overload)`
+
+        ```csharp
+        string value = EnvironmentVariables.GetVariable("PATH", "default");
+
+        // With target scope
+        string value1 = EnvironmentVariables.GetVariable("PATH", "default", EnvironmentVariableTarget.Machine);
+        ```
+
+        - ### `EnvironmentVariables.GetVariables`
+
+        ```csharp
+        Dictionary<string, string> all = EnvironmentVariables.GetVariables();
+        ```
+
+        - ### `EnvironmentVariables.SetVariable (+1 overload)`
+
+        ```csharp
+        EnvironmentVariables.SetVariable("MY_VAR", "hello");
+        ```
+
+        - ### `EnvironmentVariables.DeleteVariable (+1 overload)`
+
+        ```csharp
+        EnvironmentVariables.DeleteVariable("MY_VAR");
+        ```
+
+        - ### `EnvironmentVariables.Exists`
+
+        ```csharp
+        bool exists = EnvironmentVariables.Exists("PATH"); // true
+        ```
+
+    ---
+    - #### System directories:
+
+        - ### `SystemDirectories.GetDriveFreeSpace`
+
+        ```csharp
+        Dictionary<string, long> space = SystemDirectories.GetDriveFreeSpace();
+        // { "C:\", 53687091200 }
+        ```
+
+        - **Other properties:** `CurrentDirectory`, `Desktop`, `Documents`, `LocalAppData`, `Temporary`.
+
+---
+- ### `Kaz.Operations.Security.Certificates`
+
+    - #### Loading certificates:
+
+        - ### `LoadCertificate`
+
+        ```csharp
+        // Supported formats: .cer, .crt
+        X509Certificate2 cert = X509CertificateInfo.LoadCertificate("mycert.cer");
+        ```
+
+        - ### `LoadCertificate (with password)`
+
+        ```csharp
+        // Supported formats: .pfx, .p12
+        X509Certificate2 cert = X509CertificateInfo.LoadCertificate("mycert.pfx", "password");
+        ```
+
+    - #### If the file extension is invalid, an exception will be thrown:
+
+        ```csharp
+        X509CertificateInfo.LoadCertificate("mycert.xyz"); // Throws ArgumentException
+        ```
+
+    ---
+    - #### Certificate validation:
+
+        - ### `IsExpired`
+
+        ```csharp
+        bool expired = cert.IsExpired(); // true if past expiration date
+        ```
+
+        - ### `IsTrusted`
+
+        ```csharp
+        bool trusted = cert.IsTrusted(); // true if certificate chain is valid
+        ```
+
+        - ### `GetExpirationDate`
+
+        ```csharp
+        DateTime expiresOn = cert.GetExpirationDate(); // 01/01/2026 00:00:00
+        ```
 
 ---
 ## Installation
