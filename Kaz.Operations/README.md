@@ -150,4 +150,3 @@ DateTime exp     = cert.GetExpirationDate();
 
 [![NuGet](https://img.shields.io/badge/NuGet-Kaz.Operations-blue?logo=nuget)](https://www.nuget.org/packages/Kaz.Operations)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/artem-kazantsev-39a3213b9) 
-[![GitHub](https://img.shields.io/badge/GitHub-bronsk1y-%23121011?logo=github)](https://github.com/bronsk1y)
